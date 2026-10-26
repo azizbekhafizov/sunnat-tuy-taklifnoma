@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sunnat to’yi taklifnomasi</title>
+<meta name="theme-color" content="#06231d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌙%3C/text%3E%3C/svg%3E">
+
+<!-- TELEGRAM / WHATSAPP da havola chiroyli karta bo'lib chiqishi uchun.
+     SIZNING-SAYT-MANZILI o'rniga saytni joylagandan keyingi haqiqiy manzilni yozing
+     (masalan https://taklif-ulugbek.netlify.app). Rasm shu saytdagi rasm bo'lsin. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunnat to’yiga taklif">
+<meta property="og:description" content="Ulug’bek, Nurmuhammad va Muhammadyusuf. 2-noyabr, soat 17:00">
+<meta property="og:image" content="https://SIZNING-SAYT-MANZILI/photos/yut.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 1) BOSHLANG'ICH EKRAN: yopiq pardalar va "Ochish" tugmasi -->
+<div id="stage">
+  <div class="drape l"></div><div class="drape r"></div>
+  <div class="seal">
+    <div class="ring"><span>T</span></div>
+    <div class="small">Sunnat to’yi</div>
+    <h1>Taklifnoma</h1>
+    <button class="open" id="openBtn">Taklifnomani ochish</button>
+  </div>
+</div>
+
+<!-- Orqa fondagi oltin chaqnoqlar (bezak) -->
+<canvas id="sparkles" aria-hidden="true"></canvas>
+
+<!-- MUSIQA: fayl nomi va papkasini shu yerda almashtirasiz -->
+<audio id="bgm" src="./photos/tuybola.mp3" loop preload="auto"></audio>
+<button id="mute" aria-label="Musiqani o’chirish yoki yoqish">♪</button>
+
+<main>
+  <!-- 2) ASOSIY QISM -->
+  <section class="hero rise">
+    <div class="from">Maxmudovlar va G’aniyevlar oilasi nomidan</div>
+    <p class="lead">Hurmatli mehmon!<br>Sizni aziz farzandlarimiz</p>
+
+    <div class="names">
+      <!-- BOLALAR ISMLARI -->
+      <h2>Ulug’bek</h2>
+      <h2>Nurmuhammad</h2>
+      <h2>Muhammadyusuf</h2>
+    </div>
+    <div class="kind">sunnat to’yiga taklif qilamiz</div>
+
+    <!-- BOLALAR RASMI: rasmni photos papkasiga tashlab, src ni almashtiring.
+         Rasm topilmasa, o'rnida "T" harfi ko'rinadi, sayt buzilmaydi. -->
+    <div class="photo">
+      <span>T</span>
+      <img src="./photos/yut.png" alt="Ulug’bek, Nurmuhammad va Muhammadyusuf" decoding="async" onerror="this.remove()">
+    </div>
+
+    <div class="date">
+      <div class="day">2-noyabr</div>
+      <div class="time">Soat 17:00 da · yig’ilish 16:00 da</div>
+    </div>
+
+    <div class="cd" id="cd">
+      <div><b id="d">0</b><small>kun</small></div>
+      <div><b id="h">0</b><small>soat</small></div>
+      <div><b id="m">0</b><small>daqiqa</small></div>
+      <div><b id="s">0</b><small>soniya</small></div>
+    </div>
+    <div class="cdnote" id="cdnote">To’ygacha qolgan vaqt</div>
+
+    <button class="btn ghost" id="calBtn" type="button">Taqvimga qo’shish</button>
+  </section>
+
+  <!-- 3) DASTUR TARTIBI -->
+  <section class="prog reveal">
+    <h3>To’y dasturi</h3>
+    <div class="line"></div>
+    <ul class="tl">
+      <li><div class="t">07:00</div><div class="d">Nahorgi osh</div></li>
+      <li><div class="t">16:00</div><div class="d">Mehmonlarni kutib olish</div></li>
+      <li><div class="t">17:00</div><div class="d">To’y boshlanishi, dasturxon va duo</div></li>
+      <li><div class="t">Kechqurun</div><div class="d">Tabriklar va o’yin-kulgi</div></li>
+    </ul>
+  </section>
+
+  <!-- 4) MANZIL VA XARITA -->
+  <section class="where reveal">
+    <h3>Manzil</h3>
+    <div class="line"></div>
+    <div class="venue">To’xta bobo restorani</div>
+    <!-- Kerak bo'lsa shahar/mo'ljalni shu yerga yozing: <p>Samarqand sh., ...</p> -->
+    <a class="btn" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/place/To'xta+bobo/@39.5853475,67.0279003,17.48z/data=!4m6!3m5!1s0x3f4d2158835fc96f:0x78ac586e41cf0539!8m2!3d39.5840025!4d67.0276211!16s%2Fg%2F11sn61z152">Yo’nalishni ochish</a>
+  </section>
+
+  <!-- 5) OXIRGI QISM -->
+  <section class="end reveal">
+    <div class="line"></div>
+    <p>Sizni kutib qolamiz</p>
+    <a class="btn" href="tel:+998939938574">+998 93 993 85 74</a><br>
+    <a class="btn" href="tel:+998933548574">+998 93 354 85 74</a><br>
+    <!-- <button class="btn ghost" id="shareBtn" type="button">Do’stlarga ulashish</button> -->
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* =====================================================
+   STYLE.CSS - taklifnomaning DIZAYNI
+   RANG: pastdagi :root ichida
+     --night = eng to'q fon, --deep = to'q yashil,
+     --gold = oltin, --gold2 = och oltin,
+     --ivory = ismlar rangi, --ink = oddiy matn
+   Moviy qilish uchun: --night:#071a33; --deep:#0d3a6b;
+   ===================================================== */
+:root{--deep:#0b3b31;--night:#06231d;--gold:#d4af5f;--gold2:#f0d9a0;--ivory:#f7efdc;--ink:#e9e1cc;
+--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+html.lock,html.lock body{overflow:hidden}
+body{margin:0;min-height:100%;background:var(--night);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;
+background-image:radial-gradient(ellipse at 50% 0,#124d40 0,transparent 60%)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;color:var(--gold2)}
+main{position:relative;z-index:1}
+section{max-width:520px;margin:0 auto;padding:56px 24px;text-align:center}
+.line{width:120px;height:1px;margin:22px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+#sparkles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ---------- PARDALAR ---------- */
+#stage{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center}
+.drape{position:absolute;top:0;bottom:0;width:50.5%;transition:transform 2.6s cubic-bezier(.77,0,.25,1);will-change:transform;
+background:repeating-linear-gradient(90deg,#0a3a30 0,#145545 22px,#0a3a30 44px,#062a22 62px,#0a3a30 80px);
+box-shadow:0 0 60px rgba(0,0,0,.6)}
+.drape::after{content:"";position:absolute;top:0;bottom:0;width:6px;background:linear-gradient(var(--gold),var(--gold2),var(--gold))}
+.drape.l{left:0}.drape.l::after{right:0}
+.drape.r{right:0}.drape.r::after{left:0}
+.drape::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent 25%,transparent 75%,rgba(0,0,0,.5))}
+#stage.open .l{transform:translateX(-101%)}
+#stage.open .r{transform:translateX(101%)}
+.seal{position:relative;z-index:2;text-align:center;padding:0 24px;transition:opacity .8s,transform .8s}
+#stage.open .seal{opacity:0;transform:scale(.9);pointer-events:none}
+.seal .small{font-size:15px;letter-spacing:.12em;color:var(--gold2)}
+.seal h1{font-size:clamp(44px,13vw,64px);line-height:1;margin:10px 0 28px}
+.ring{width:132px;height:132px;margin:0 auto 26px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;
+box-shadow:0 0 0 7px rgba(212,175,95,.12),0 0 40px rgba(212,175,95,.25) inset}
+.ring span{font-family:var(--serif);font-size:62px;color:var(--gold)}
+button.open{font:500 17px var(--sans);color:var(--night);background:linear-gradient(135deg,var(--gold2),var(--gold));border:0;border-radius:40px;
+padding:16px 38px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+
+/* ---------- ASOSIY QISM ---------- */
+.hero{padding-top:64px}
+.hero .lead{font-size:17px;color:var(--ink)}
+.from{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--gold);margin-bottom:18px}
+.names{margin:26px 0 6px}
+.names h2{font-size:clamp(44px,13.5vw,66px);line-height:1.08;color:var(--ivory)}
+.names h2 + h2{margin-top:2px}
+.kind{font-family:var(--serif);font-size:26px;color:var(--gold);font-style:italic}
+
+/* Bolalar rasmi: o'z o'lchamida, hech narsa kesilmaydi */
+.photo{position:relative;width:92%;max-width:380px;min-height:240px;margin:28px auto 0;overflow:hidden;
+border:2px solid var(--gold);border-radius:18px;background:#0f4a3d;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+.photo img{position:relative;z-index:1;display:block;width:100%;height:auto}
+.photo span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:56px;color:var(--gold)}
+
+.date{margin-top:30px;border:1px solid rgba(212,175,95,.5);border-radius:6px;padding:22px 12px}
+.date .day{font-family:var(--serif);font-size:40px;color:var(--gold2);line-height:1.1}
+.date .time{margin-top:6px;font-size:17px}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
+.cd div{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,95,.35);border-radius:8px;padding:14px 4px}
+.cd b{display:block;font-family:var(--serif);font-size:34px;color:var(--gold2);font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.cd small{font-size:13px;color:var(--ink)}
+.cdnote{margin-top:12px;font-size:15px}
+
+.prog h3,.where h3{font-size:36px}
+.tl{list-style:none;margin:28px 0 0;padding:0 0 0 26px;text-align:left;border-left:1px solid var(--gold)}
+.tl li{position:relative;padding:0 0 26px 18px}
+.tl li::before{content:"";position:absolute;left:-32px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--night)}
+.tl .t{font-family:var(--serif);font-size:26px;color:var(--gold2);line-height:1.1}
+.tl .d{font-size:16px}
+
+.where p{margin:14px 0 0}
+.venue{font-family:var(--serif);font-size:32px;color:var(--ivory);line-height:1.15}
+
+/* Tugmalar */
+.btn{display:inline-block;margin-top:16px;padding:15px 34px;border-radius:40px;border:0;cursor:pointer;
+background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--night);font:500 17px var(--sans);text-decoration:none;
+box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.where .btn{margin-top:24px}
+.btn.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);box-shadow:none;font-size:16px;padding:13px 28px;margin-top:22px}
+.btn:focus-visible,button.open:focus-visible,#mute:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+.end{padding-bottom:110px}
+.end p{font-family:var(--serif);font-size:24px;color:var(--gold2);font-style:italic;margin:14px 0 0}
+
+#mute{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:48px;height:48px;border-radius:50%;
+border:1px solid var(--gold);background:rgba(6,35,29,.85);color:var(--gold2);font-size:20px;cursor:pointer;display:none}
+#mute.on{display:block}
+
+/* ---------- ANIMATSIYALAR ---------- */
+.rise{opacity:0;transform:translateY(18px);transition:opacity 1.4s ease 1.4s,transform 1.4s ease 1.4s}
+body.shown .rise{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .drape{transition-duration:.3s}
+  .rise,.reveal{transition:none;opacity:1;transform:none}
+  button.open{animation:none}
+}
